@@ -4,6 +4,7 @@ class CashRegister
   def initialize( n = 0 )
     @total = 0
     @employee_discount = n
+    @items = []
   end
 
   def total
@@ -12,6 +13,16 @@ class CashRegister
 
   def add_item(title, price, quantity = 1)
     @total += price * quantity
+    if quantity > 1 
+      i = 0
+      while i < quantity 
+        @items << title 
+        i += 1 
+      end
+    else 
+      @items << title 
+    end
+    
   end
 
   def apply_discount
